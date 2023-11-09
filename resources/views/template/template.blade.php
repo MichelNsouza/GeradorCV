@@ -11,7 +11,7 @@
     <!-- Seu CSS personalizado -->
     <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
         body {
             background-color: #3498db; /* Define a cor de fundo que desejar */
@@ -47,13 +47,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{route('index')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
+                        <a class="nav-link" href="https://github.com/MichelNsouza">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ajuda</a>
+                        <a class="nav-link" href="https://github.com/MichelNsouza/GeradorCV">Ajuda</a>
                     </li>
                 </ul>
             </div>
@@ -69,29 +69,15 @@
     <footer>
         <div class="page-footer">
             <!-- Rodapé do seu currículo -->
-            <p>Direitos Autorais © {{ date('Y') }}</p>
+            <p>Direitos Autorais  ©  Michel N Souza - {{ date('Y') }}</p>
         </div>
     </footer>
 
-    <!-- JS do Bootstrap -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-    <!-- Seu JS personalizado -->
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Referenciando o arquivo jQuery baixado ou o link CDN -->
-<script src="jquery-3.6.1.min.js"></script>
-<!-- Ou <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> -->
-<!-- Escrevendo o código jQuery -->
-<script>
-  $(document).ready(function() {
-    $("#telefone").inputmask({
-      mask: "(99) 99999-9999"
-    });
-  });
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 </html>

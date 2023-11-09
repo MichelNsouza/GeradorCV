@@ -17,7 +17,18 @@ class Curriculo extends Model
       'email',
       'linkedin',
       'objetivo',
-      'experiencia',
-      'educacao',
+  
+      'instituicao',
+      'curso',
+      'inicioEducacao',
+      'conclusaoEducacao',
+      'descricaoEducacao',
+  
+      'empresa',
+      'cargoEmpresa',
+      'entradaEmpresa',
+      'saidaEmpresa',
+      'descricaoEmpresa',
   ];
+  
 }

@@ -11,10 +11,13 @@
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 10px;
             padding: 0;
+            border: 2px solid black;
         }
-
+        hr {
+          border: 1px solid black;
+        }
         .sheet {
             /* Ajuste as dimensões para ocupar a página inteira */
             width: 100%;
@@ -81,30 +84,45 @@
 <br>
 <br>
 <br>
+<hr>
         <div class="container">
-            <div class="titulo-objetivo">Objetivos</div>
+            <div class="titulo-objetivo">Objetivo e Meta</div>
             <div class="descricao-objetivo">
                 <p>{{ $curriculo->objetivo }}</p>
             </div>
         </div>
 <br>
 <br>
+<hr>
         <div class="container">
-            <div class="titulo-experiencia">Experiências</div>
+
+            <div class="titulo-experiencia">
+              Experiência Profissional
+            </div>
+
             <div class="descricao-experiencia">
-                <p>{{ $curriculo->experiencia }}</p>
+                <p>{{$curriculo->curso}} - {{$curriculo->instituicao}}</p>
+                <p>Inicio: {{$curriculo->inicioEducacao}} - Conclusão:{{$curriculo->conclusaoEducacao}}</p>
+                <p>{{$curriculo->descricaoEducacao}}</p>
             </div>
         </div>
 <br>
 <br>
+<hr>
         <div class="container">
-            <div class="titulo-experiencia">Formações / Cursos</div>
+
+            <div class="titulo-experiencia">
+              Formação / Curso
+            </div>
+
             <div class="descricao-experiencia">
-                <p>{{ $curriculo->educacao }}</p>
+                <p>{{$curriculo->empresa}} - {{$curriculo->cargoEmpresa}}</p>
+                <p>De: {{$curriculo->entradaEmpresa}} Até:{{$curriculo->saidaEmpresa}}</p>
+                <p>{{$curriculo->descricaoEmpresa}}</p>
             </div>
         </div>
     </div>
-<!-- Inclua seus arquivos JS no final da página para melhorar o desempenho -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

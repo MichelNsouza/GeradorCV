@@ -49,8 +49,19 @@ class CurriculoController extends Controller
       $curriculo->linkedin = $request->input('linkedin');
       $curriculo->email = $request->input('email');
       $curriculo->objetivo = $request->input('objetivo');
-      $curriculo->experiencia = $request->input('experiencia');
-      $curriculo->educacao = $request->input('educacao');
+    
+      $curriculo->empresa = $request->input('empresa');
+      $curriculo->cargoEmpresa = $request->input('cargoEmpresa');
+      $curriculo->entradaEmpresa = $request->input( 'entradaEmpresa');
+      $curriculo->saidaEmpresa = $request->input('saidaEmpresa');
+      $curriculo->descricaoEmpresa = $request->input('descricaoEmpresa');
+      $curriculo->instituicao = $request->input('instituicao');
+      $curriculo->curso = $request->input('curso');
+      $curriculo->inicioEducacao = $request->input('inicioEducacao');
+      $curriculo->conclusaoEducacao = $request->input('conclusaoEducacao');
+      $curriculo->descricaoEducacao = $request->input('descricaoEducacao');
+
+    
       // salvar o curriculo no banco de dados
       // $curriculo->save();
 
