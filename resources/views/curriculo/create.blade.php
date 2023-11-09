@@ -14,9 +14,6 @@
     <p class="text-center">
       Preencha os campos abaixo com os dados necessários para o seu currículo.
     </p>
-<p class="text-center">
-Todos os campos são opcionais, mas recomendamos que preencha todos :)
-</p>
 
   <form action="/store" method="post">
   @csrf
@@ -36,7 +33,8 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
           class="form-control" 
           id="nome" 
           name="nome" 
-          placeholder="Digite seu nome completo" 
+          placeholder="Digite seu nome completo"
+          required 
           >
       </div>
 
@@ -51,6 +49,7 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
           id="cargo" 
           name="cargo" 
           placeholder="Digite seu cargo pretendido" 
+        required 
           >
       </div>
 
@@ -64,7 +63,8 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
           class="form-control" 
           id="endereco" 
           name="endereco" 
-          placeholder="Digite seu endereço" 
+          placeholder="Digite seu endereço"
+required 
         >
       </div>
 
@@ -77,8 +77,9 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
           type="tel" 
           class="form-control" 
           id="telefone" 
-          name="telefone" 
-          placeholder="Digite seu número de telefone" 
+          name="telefone"
+          placeholder="(XX) XXXXX-XXXX" 
+          required 
         >
       </div>
 
@@ -93,6 +94,7 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
           id="email" 
           name="email" 
           placeholder="Digite seu endereço de e-mail" 
+required 
         >
       </div>
 
@@ -121,11 +123,12 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
           id="objetivo" 
           name="objetivo" 
           placeholder="Digite seus objetvos e metas"
+required 
         >
       </div>
 
     <!-- box educação -->
-    <div class="form-group" id="educacao">
+    <div class="form-group" id="educacao" >
       <label for="educacao">
         Experiência acadêmica
       </label>
@@ -134,6 +137,7 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
         class="form-control" 
         name="educacao" 
         placeholder="Digite suas conquistas acadêmicas"
+required 
       >
     </div>
 
@@ -154,6 +158,7 @@ Todos os campos são opcionais, mas recomendamos que preencha todos :)
         class="form-control" 
         name="experiencia" 
         placeholder="Digite sua experiência profissional"
+required 
       >
     </div>
     <button type="button" class="btn btn-primary" id="adicionar-experiencia">

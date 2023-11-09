@@ -81,5 +81,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Referenciando o arquivo jQuery baixado ou o link CDN -->
+<script src="jquery-3.6.1.min.js"></script>
+<!-- Ou <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> -->
+<!-- Escrevendo o código jQuery -->
+<script>
+  $(document).ready(function() {
+    $("#telefone").inputmask({
+      mask: "(99) 99999-9999"
+    });
+  });
+</script>
 </body>
 </html>
