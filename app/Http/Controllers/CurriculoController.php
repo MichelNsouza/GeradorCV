@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Curriculo;
 use Illuminate\Http\Request;
 use PDF;
-
+use App\Services\FormataData;
 
 class CurriculoController extends Controller
 {
@@ -16,7 +16,7 @@ class CurriculoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public Curriculo $curriculo;
-  
+    
     public function index()
     {
       return view('curriculo.index');
@@ -38,44 +38,30 @@ class CurriculoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-  public function store(Request $request)
+  public function store(Request $request, FormataData $formataData)
   {
-      $curriculo = new Curriculo;
+      $curriculo = new Curriculo();
 
-      $curriculo->nome = $request->input('nome');
-      $curriculo->cargo = $request->input('cargo');
-      $curriculo->endereco = $request->input('endereco');
-      $curriculo->telefone = $request->input('telefone');
-      $curriculo->linkedin = $request->input('linkedin');
-      $curriculo->email = $request->input('email');
-      $curriculo->objetivo = $request->input('objetivo');
-    
-      $curriculo->empresa = $request->input('empresa');
-      $curriculo->cargoEmpresa = $request->input('cargoEmpresa');
-      $curriculo->entradaEmpresa = $request->input( 'entradaEmpresa');
-      $curriculo->saidaEmpresa = $request->input('saidaEmpresa');
-      $curriculo->descricaoEmpresa = $request->input('descricaoEmpresa');
-      $curriculo->instituicao = $request->input('instituicao');
-      $curriculo->curso = $request->input('curso');
-      $curriculo->inicioEducacao = $request->input('inicioEducacao');
-      $curriculo->conclusaoEducacao = $request->input('conclusaoEducacao');
-      $curriculo->descricaoEducacao = $request->input('descricaoEducacao');
+      $dadosCurriculo = $request->only([
+          'nome', 'cargo', 'endereco', 'telefone', 'linkedin', 'email', 'objetivo',
+          'empresa', 'cargoEmpresa', 'entradaEmpresa', 'saidaEmpresa', 'descricaoEmpresa',
+          'instituicao', 'curso', 'inicioEducacao', 'conclusaoEducacao', 'descricaoEducacao',
+      ]);
 
-    
-      // salvar o curriculo no banco de dados
+      $curriculo->fill($dadosCurriculo);
+
+      // Formatar datas
+      $curriculo->entradaEmpresa = $formataData->formataData($request->input('entradaEmpresa'));
+      $curriculo->saidaEmpresa = $formataData->formataData($request->input('saidaEmpresa'));
+      $curriculo->inicioEducacao = $formataData->formataData($request->input('inicioEducacao'));
+      $curriculo->conclusaoEducacao = $formataData->formataData($request->input('conclusaoEducacao'));
+
+      // Salvar o currículo no banco de dados
       // $curriculo->save();
 
-      // Renderizar a view com os dados do Curriculo
-      $html = view('pdf.index', ['curriculo' => $curriculo])->render();
-
-      // Carregar o HTML no PDF
-      $pdf = PDF::loadHTML($html);
-
-      // Retornar o PDF para download
-    
-      return $pdf->download($curriculo->nome .'CV.pdf');
-
-    //return view('pdf.index', ['curriculo' => $curriculo]);
+      // Carregar o HTML no PDF e retornar para download
+      return PDF::loadHTML(view('pdf.index', ['curriculo' => $curriculo])->render())
+          ->download($curriculo->nome . 'CV.pdf');
   }
 
     /**
@@ -122,14 +108,5 @@ class CurriculoController extends Controller
     {
         //
     }
-
-    public function gerarPDF()
-    {
-     // $html = View::file(resource_path('views/pdf/pdf.blade.php'))->render();
- //     $pdf = PDF::loadHTML($html);
   
-      //return $pdf->download('cv.pdf');
-
-      //return view('pdf.pdf');
-    }
 }

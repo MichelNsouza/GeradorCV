@@ -16,7 +16,9 @@
             border: 2px solid black;
         }
         hr {
-          border: 1px solid black;
+          border: 1px solid black; 
+          margin: 0 0; 
+          width: 95%; 
         }
         .sheet {
             /* Ajuste as dimensões para ocupar a página inteira */
@@ -59,25 +61,25 @@
     </style>
 </head>
 <body>
-    <div class="sheet">
-<br>
-<br>
-        <div class="container">
-            <div class="dados">
-                <div class="nome">
-                    <h1>{{ $curriculo->nome }}</h1>
-                </div>
-                <div class="cargo">{{ $curriculo->cargo }}</div>
-<br>
-<br>
-                <div class="contato float-right text-right">
-                    <p><i class="fab fa-linkedin"></i> {{ $curriculo->linkedin }}</p>
-                    <p><i class="far fa-envelope"></i> {{ $curriculo->email }}</p>
-                    <p><i class="fas fa-phone"></i> {{ $curriculo->telefone }}</p>
-                    <p><i class="fas fa-map-marker"></i> {{ $curriculo->endereco }}</p>
-                </div>
-            </div>
+<div class="sheet">
+
+    <div class="container dados"> <!--  ***********************BOX DADOS******************** -->
+
+        <div class="float-left text-left">
+          <h1 class="nome">{{$curriculo->nome}}</h1>
+          <p class="cargo">{{$curriculo->cargo}}</p>
         </div>
+
+        <div class="contato float-right text-right">
+          <p><i class="fab fa-linkedin"></i> {{ $curriculo->linkedin }}</p>
+          <p><i class="far fa-envelope"></i> {{ $curriculo->email }}</p>
+          <p><i class="fas fa-phone"></i> {{ $curriculo->telefone }}</p>
+          <p><i class="fas fa-map-marker"></i> {{ $curriculo->endereco }}</p>
+        </div>
+
+    </div> <!--************************ FIM BOX DADOS************************** -->
+
+<br>
 <br>
 <br>
 <br>
@@ -85,43 +87,40 @@
 <br>
 <br>
 <hr>
-        <div class="container">
-            <div class="titulo-objetivo">Objetivo e Meta</div>
-            <div class="descricao-objetivo">
-                <p>{{ $curriculo->objetivo }}</p>
-            </div>
-        </div>
-<br>
-<br>
-<hr>
-        <div class="container">
 
-            <div class="titulo-experiencia">
-              Experiência Profissional
-            </div>
+    <div class="container objetivo">
+      <p class="titulo-objetivo">Objetivo e Meta</p>
+      <p class="descricao-objetivo">{{$curriculo->objetivo}}</p>
+    </div>
 
-            <div class="descricao-experiencia">
-                <p>{{$curriculo->curso}} - {{$curriculo->instituicao}}</p>
-                <p>Inicio: {{$curriculo->inicioEducacao}} - Conclusão:{{$curriculo->conclusaoEducacao}}</p>
-                <p>{{$curriculo->descricaoEducacao}}</p>
-            </div>
-        </div>
-<br>
-<br>
-<hr>
-        <div class="container">
+<br><hr>
 
-            <div class="titulo-experiencia">
-              Formação / Curso
-            </div>
+    <div class="container educacao">
+        <p class="titulo-experiencia">
+          Formação / Curso
+        </p>
+      <div class="descricao-experiencia">
+        <p>{{$curriculo->curso}} - {{$curriculo->instituicao}}</p>
+        <p>{{$curriculo->descricaoEducacao}}</p>
+        <p>Inicio: {{$curriculo->inicioEducacao}} - Conclusão:{{$curriculo->conclusaoEducacao}}</p>
+      </div>
+    </div>
 
-            <div class="descricao-experiencia">
-                <p>{{$curriculo->empresa}} - {{$curriculo->cargoEmpresa}}</p>
-                <p>De: {{$curriculo->entradaEmpresa}} Até:{{$curriculo->saidaEmpresa}}</p>
-                <p>{{$curriculo->descricaoEmpresa}}</p>
-            </div>
+<br><hr>
+
+    <div class="container experiencia">
+        <p class="titulo-experiencia">
+          Experiência Profissional
+        </p>
+
+        <div class="descricao-experiencia">
+          <p>{{$curriculo->empresa}} - {{$curriculo->cargoEmpresa}}</p>
+          <p>{{$curriculo->descricaoEmpresa}}</p>
+          <p>De: {{$curriculo->entradaEmpresa}} Até:{{$curriculo->saidaEmpresa}}</p>
         </div>
     </div>
+
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
