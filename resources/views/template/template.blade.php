@@ -35,6 +35,11 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra */
             margin-top: 20px; /* Margem superior para afastar do navbar */
         }
+        .bordaCampos {
+          border: 1px solid lightblue;
+          padding: 5px;
+          margin: 5pc;
+        }
     </style>
 </head>
 <body>
@@ -72,12 +77,70 @@
             <p>Direitos Autorais  ©  Michel N Souza - {{ date('Y') }}</p>
         </div>
     </footer>
+  
 
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+    
+<script>
+    $(document).ready(function () {
+        $("#telefone").mask("(99) 9 9999-9999", {
+            clearIfNotMatch: true,
+            placeholder: "(XX) 9 XXXX-XXXX"
+        });
+
+        // Adiciona um evento de input ao campo de telefone
+        $("#telefone").on('input', function (event) {
+            // Remove todos os caracteres não numéricos
+            var phoneNumber = $(this).val().replace(/\D/g, '');
+
+            // Atualiza o valor com a máscara
+            $(this).val(phoneNumber.replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4'));
+        });
+    });
+</script>
+
+<script>
+$(document).ready(function () {
+    var contadorEducacao = 1;
+    var contadorExperiencia = 1;
+
+    // Função para clonar campos de educação
+    $('#adicionar-educacao').click(function () {
+        contadorEducacao++;
+        var educacaoClone = clonarElemento('educacao', contadorEducacao, 'formacao');
+        $('#formacao').append(educacaoClone);
+    });
+
+    // Função para clonar campos de experiência
+    $('#adicionar-experiencia').click(function () {
+        contadorExperiencia++;
+        var experienciaClone = clonarElemento('experiencia', contadorExperiencia, 'experiencia');
+        $('#experiencia').append(experienciaClone);
+    });
+
+    function clonarElemento(idBase, contador, containerId) {
+        var clone = $('#' + idBase).clone(true);
+        clone.attr('id', idBase + contador);
+
+        // Atualiza os IDs dos campos clonados para garantir unicidade
+        clone.find('[id]').each(function () {
+            var novoId = this.id + contador;
+            $(this).attr('id', novoId);
+        });
+
+        return clone;
+    }
+});
+</script>
+
+   
+
+  
 </body>
 </html>
