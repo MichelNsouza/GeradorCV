@@ -10,7 +10,7 @@
         <p class="text-center">O site irá gerar um currículo em formato PDF que você poderá baixar, imprimir ou compartilhar.</p>
         <div class="d-flex justify-content-center">
 
-            <a href="{{ route('create') }}" class="btn btn-primary btn-lg">Começar Agora</a>
+            <a href="{{ route('create') }}" class="btn btn-primary btn-lg">Começar Agora teste</a>
 
         </div>
     </div>
