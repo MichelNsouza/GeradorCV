@@ -14,9 +14,9 @@ Este repositório contém um projeto pessoal (ainda em andamento) que elaborei p
 Conseguir estilizar o PDF apenas com css3;
 
 ## Proximos passos
-- Sistema de login
-- Persistência de dados
-- Incluir varias opções de estilo de CV
+- Sistema de login;
+- Persistência de dados;
+- Incluir varias opções de estilo de CV;
 
 ## Deploy
 - [Vercel](https://geradorcurriculo.vercel.app/);
