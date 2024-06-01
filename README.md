@@ -20,3 +20,10 @@ Conseguir estilizar o PDF apenas com css3;
 
 ## Deploy
 - [Vercel](https://geradorcurriculo.vercel.app/);
+
+## Imagens
+![image](https://github.com/MichelNsouza/GeradorCV/assets/91084191/fe32bee3-98a6-4211-baec-649da3b9fca7)
+![image](https://github.com/MichelNsouza/GeradorCV/assets/91084191/8e3af1a2-fbe7-40e0-8f28-f06753efff90)
+![image](https://github.com/MichelNsouza/GeradorCV/assets/91084191/77d28ac8-6cc3-4dcc-abfa-a275e281813f)
+![image](https://github.com/MichelNsouza/GeradorCV/assets/91084191/1f76e62b-e980-4fe8-9585-c8b76427868a)
+
